@@ -1,4 +1,4 @@
-package gigroup.exercises.model;
+package gigroup.exercises.myshop.model;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;

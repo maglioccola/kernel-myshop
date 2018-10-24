@@ -1,4 +1,4 @@
-package gigroup.exercises.model;
+package gigroup.exercises.myshop.model;
 
 import java.util.Collections;
 import java.util.List;

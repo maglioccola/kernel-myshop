@@ -1,11 +1,11 @@
-package gigroup.exercises;
+package gigroup.exercises.myshop;
 
 import java.math.BigDecimal;
 
-import gigroup.exercises.command.DefaultPriceList;
-import gigroup.exercises.command.ShoppingCart;
-import gigroup.exercises.command.ShoppingCart.ShoppingCartBuilder;
-import gigroup.exercises.model.PriceList;
+import gigroup.exercises.myshop.command.DefaultPriceList;
+import gigroup.exercises.myshop.command.ShoppingCart;
+import gigroup.exercises.myshop.command.ShoppingCart.ShoppingCartBuilder;
+import gigroup.exercises.myshop.model.PriceList;
 
 public class App {
 

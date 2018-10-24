@@ -1,13 +1,13 @@
-package gigroup.exercises.command;
+package gigroup.exercises.myshop.command;
 
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
-import gigroup.exercises.model.Article;
-import gigroup.exercises.model.Price;
-import gigroup.exercises.model.PriceList;
+import gigroup.exercises.myshop.model.Article;
+import gigroup.exercises.myshop.model.Price;
+import gigroup.exercises.myshop.model.PriceList;
 
 public class ShoppingCart {
 

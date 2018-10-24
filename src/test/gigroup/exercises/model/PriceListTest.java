@@ -5,6 +5,9 @@ import java.util.List;
 
 import org.junit.Test;
 
+import gigroup.exercises.myshop.model.Price;
+import gigroup.exercises.myshop.model.PriceList;
+
 public class PriceListTest {
 
 	private final Price priceInstance = new Price.PriceBuilder().build();

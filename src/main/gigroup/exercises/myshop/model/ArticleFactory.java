@@ -1,8 +1,8 @@
-package gigroup.exercises.model;
+package gigroup.exercises.myshop.model;
 
 import java.math.BigDecimal;
 
-import gigroup.exercises.model.Article.ArticleBuilder;
+import gigroup.exercises.myshop.model.Article.ArticleBuilder;
 
 public class ArticleFactory {
 
