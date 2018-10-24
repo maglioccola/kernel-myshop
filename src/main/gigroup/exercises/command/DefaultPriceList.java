@@ -4,8 +4,8 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
-import gigroup.exercises.factory.ArticleFactory;
 import gigroup.exercises.model.Article;
+import gigroup.exercises.model.ArticleFactory;
 import gigroup.exercises.model.Price;
 import gigroup.exercises.model.PriceList;
 

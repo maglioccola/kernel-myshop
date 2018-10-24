@@ -2,50 +2,82 @@ package gigroup.exercises.model;
 
 import java.math.BigDecimal;
 
-public abstract class Article implements Taxable {
+public class Article implements Taxable {
 
 	protected static final BigDecimal ONE_HUNDRED = new BigDecimal(100);
-
 	protected static final BigDecimal IMPORTED_TAX_PERCENT = new BigDecimal(5);
 
 	private Long id;
 	private String name;
 	private boolean imported = false;
+	private BigDecimal taxPercent;
 
-	public Long getId() {
+	private Article() {
+	}
+
+	Long getId() {
 		return id;
 	}
 
-	public void setId(final Long id) {
+	void setId(final Long id) {
 		this.id = id;
 	}
 
-	public String getName() {
+	String getName() {
 		return name;
 	}
 
-	public void setName(final String name) {
+	void setName(final String name) {
 		this.name = name;
 	}
 
-	public boolean isImported() {
+	boolean isImported() {
 		return imported;
 	}
 
-	public void setImported(final boolean imported) {
+	void setImported(final boolean imported) {
 		this.imported = imported;
 	}
 
-	public abstract BigDecimal getTaxPercent();
+	BigDecimal getTaxPercent() {
+		return taxPercent;
+	}
+
+	void setTaxPercent(final BigDecimal taxPercent) {
+		this.taxPercent = taxPercent;
+	}
+
+	static class ArticleBuilder {
+		private final Article instance = new Article();
+
+		public ArticleBuilder withId(final Long id) {
+			instance.setId(id);
+			return this;
+		}
+
+		public ArticleBuilder withName(final String name) {
+			instance.setName(name);
+			return this;
+		}
+
+		public ArticleBuilder withImported(final boolean imported) {
+			instance.setImported(imported);
+			return this;
+		}
+
+		public ArticleBuilder withTaxPercent(final BigDecimal taxPercent) {
+			instance.setTaxPercent(taxPercent);
+			return this;
+		}
+
+		public Article build() {
+			return this.instance;
+		}
+	}
 
 	@Override
 	public BigDecimal getSalesTaxPercent() {
-		final BigDecimal taxPercent;
-//		if (this.isImported()) {
-//			taxPercent = this.getTaxPercent().add(IMPORTED_TAX_PERCENT);
-//		} else {
-		taxPercent = this.getTaxPercent();
-//		}
-		return taxPercent.divide(ONE_HUNDRED);
+		return this.taxPercent.divide(ONE_HUNDRED);
 	}
+
 }
