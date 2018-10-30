@@ -9,47 +9,27 @@ public class ArticleFactory {
 	private static final BigDecimal DEFAULT_TAX_PERCENT = new BigDecimal(10);
 
 	/**
-	 * Creates a new article, not imported and not taxed exempt.
+	 * Creates a new article.
 	 *
-	 * @param id   the id
-	 * @param name the name
+	 * @param id          the id
+	 * @param name        the name
+	 * @param articleType the article type
 	 * @return the article
 	 */
-	public static Article createArticle(final Long id, final String name) {
-		return createArticle(id, name, false, false);
-	}
-
-	/**
-	 * Creates a new imported article, not taxed exempt.
-	 *
-	 * @param id   the id
-	 * @param name the name
-	 * @return the article
-	 */
-	public static Article createImportedArticle(final Long id, final String name) {
-		return createArticle(id, name, true, false);
-	}
-
-	/**
-	 * Creates a new taxed exempt article, not imported.
-	 *
-	 * @param id   the id
-	 * @param name the name
-	 * @return the article
-	 */
-	public static Article createTaxExemptArticle(final Long id, final String name) {
-		return createArticle(id, name, false, true);
-	}
-
-	/**
-	 * Creates a new taxed exempt and imported article.
-	 *
-	 * @param id   the id
-	 * @param name the name
-	 * @return the article
-	 */
-	public static Article createTaxExemptImportedArticle(final Long id, final String name) {
-		return createArticle(id, name, true, true);
+	public static Article createArticle(final Long id, final String name, final ArticleType articleType) {
+		switch (articleType) {
+		case Article:
+			return createArticle(id, name, false, false);
+		case ImportedArticle:
+			return createArticle(id, name, true, false);
+		case TaxExemptArticle:
+			return createArticle(id, name, false, true);
+		case TaxExemptImportedArticle:
+			return createArticle(id, name, true, true);
+		default:
+			break;
+		}
+		return null;
 	}
 
 	/**
@@ -72,5 +52,9 @@ public class ArticleFactory {
 		}
 
 		return builder.build();
+	}
+
+	public enum ArticleType {
+		Article, ImportedArticle, TaxExemptArticle, TaxExemptImportedArticle
 	}
 }

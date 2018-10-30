@@ -6,6 +6,7 @@ import java.util.List;
 
 import gigroup.exercises.myshop.model.Article;
 import gigroup.exercises.myshop.model.ArticleFactory;
+import gigroup.exercises.myshop.model.ArticleFactory.ArticleType;
 import gigroup.exercises.myshop.model.Price;
 import gigroup.exercises.myshop.model.PriceList;
 
@@ -37,21 +38,22 @@ public class DefaultPriceList {
 	private DefaultPriceList() {
 	}
 
-	public static Article BOOK = ArticleFactory.createTaxExemptArticle(BOOK_ID, BOOK_NAME);
-	public static Article MUSIC_CD = ArticleFactory.createArticle(MUSIC_CD_ID, MUSIC_CD_NAME);
-	public static Article CHOCOLATE_BAR = ArticleFactory.createTaxExemptArticle(CHOCOLATE_BAR_ID, CHOCOLATE_BAR_NAME);
+	public static Article BOOK = ArticleFactory.createArticle(BOOK_ID, BOOK_NAME, ArticleType.Article);
+	public static Article MUSIC_CD = ArticleFactory.createArticle(MUSIC_CD_ID, MUSIC_CD_NAME, ArticleType.Article);
+	public static Article CHOCOLATE_BAR = ArticleFactory.createArticle(CHOCOLATE_BAR_ID, CHOCOLATE_BAR_NAME,
+			ArticleType.TaxExemptArticle);
 
-	public static Article IMP_BOX_CHOCCOLATES = ArticleFactory.createTaxExemptImportedArticle(IMP_BOX_CHOCCOLATES_ID,
-			IMP_BOX_CHOCCOLATES_NAME);
-	public static Article IMP_BOTTLE_OF_PERFUME = ArticleFactory.createImportedArticle(IMP_BOTTLE_OF_PERFUME_ID,
-			IMP_BOTTLE_OF_PERFUME_NAME);
+	public static Article IMP_BOX_CHOCCOLATES = ArticleFactory.createArticle(IMP_BOX_CHOCCOLATES_ID,
+			IMP_BOX_CHOCCOLATES_NAME, ArticleType.TaxExemptImportedArticle);
+	public static Article IMP_BOTTLE_OF_PERFUME = ArticleFactory.createArticle(IMP_BOTTLE_OF_PERFUME_ID,
+			IMP_BOTTLE_OF_PERFUME_NAME, ArticleType.ImportedArticle);
 
-	public static Article BOTTLE_OF_PERFUME = ArticleFactory.createArticle(BOTTLE_OF_PERFUME_ID,
-			BOTTLE_OF_PERFUME_NAME);
-	public static Article HEADACHE_PILLS = ArticleFactory.createTaxExemptArticle(HEADACHE_PILLS_ID,
-			HEADACHE_PILLS_NAME);
-	public static Article IMPORTED_BOX_CHOCCOLATES = ArticleFactory
-			.createTaxExemptImportedArticle(IMP_BOX_CHOCCOLATES_ID, IMP_BOX_CHOCCOLATES_NAME);
+	public static Article BOTTLE_OF_PERFUME = ArticleFactory.createArticle(BOTTLE_OF_PERFUME_ID, BOTTLE_OF_PERFUME_NAME,
+			ArticleType.Article);
+	public static Article HEADACHE_PILLS = ArticleFactory.createArticle(HEADACHE_PILLS_ID, HEADACHE_PILLS_NAME,
+			ArticleType.TaxExemptArticle);
+	public static Article IMPORTED_BOX_CHOCCOLATES = ArticleFactory.createArticle(IMP_BOX_CHOCCOLATES_ID,
+			IMP_BOX_CHOCCOLATES_NAME, ArticleType.TaxExemptImportedArticle);
 
 	public static PriceList getInstance() {
 		final List<Price> prices = new ArrayList<Price>();
